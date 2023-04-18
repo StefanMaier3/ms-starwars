@@ -1,0 +1,10 @@
+name: Node.js CI
+
+on:
+  push:
+  pull_request:
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm unit-test
