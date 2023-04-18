@@ -2,8 +2,8 @@
  * This was a common thing I was doing to manipulate the URLs returned from SWAPI.
  * @param {string} originalUrl
  */
-const getId = originalUrl => {
-  const splitUrl = originalUrl.split('/');
+const getId = (originalUrl) => {
+  const splitUrl = originalUrl.split("/");
   const id = splitUrl[splitUrl.length - 2];
   return id;
 };
@@ -17,7 +17,7 @@ const getId = originalUrl => {
  *
  * @param {string} episodeNumber
  */
-const translateEpisode = episodeNumber => {
+const translateEpisode = (episodeNumber) => {
   let id = 0;
   const episodeInt = parseInt(episodeNumber);
   switch (episodeInt) {
@@ -59,5 +59,5 @@ const translateEpisode = episodeNumber => {
 
 module.exports = {
   getId,
-  translateEpisode
+  translateEpisode,
 };

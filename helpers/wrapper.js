@@ -1,5 +1,5 @@
-const util = require('./util');
-const swapi = require('../apis/swapi');
+const util = require("./util");
+const swapi = require("../apis/swapi");
 
 /**
  * wrapper for promises created to call SWAPI people route
@@ -12,14 +12,14 @@ const people = (peopleUrl, promises, output) => {
   promises.push(
     swapi
       .people(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           name: response.name,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on people call with id ' + id);
+      .catch((error) => {
+        console.log("error on people call with id " + id);
         throw error;
       })
   );
@@ -36,14 +36,14 @@ const planet = (planetUrl, promises, output) => {
   promises.push(
     swapi
       .planet(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           name: response.name,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on planet call with id ' + id);
+      .catch((error) => {
+        console.log("error on planet call with id " + id);
         throw error;
       })
   );
@@ -60,14 +60,14 @@ const starship = (starshipUrl, promises, output) => {
   promises.push(
     swapi
       .starship(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           name: response.name,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on starship call with id ' + id);
+      .catch((error) => {
+        console.log("error on starship call with id " + id);
         throw error;
       })
   );
@@ -84,14 +84,14 @@ const vehicle = (vehicleUrl, promises, output) => {
   promises.push(
     swapi
       .vehicle(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           name: response.name,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on vehicle call with id ' + id);
+      .catch((error) => {
+        console.log("error on vehicle call with id " + id);
         throw error;
       })
   );
@@ -108,14 +108,14 @@ const species = (speciesUrl, promises, output) => {
   promises.push(
     swapi
       .species(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           name: response.name,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on species call with id ' + id);
+      .catch((error) => {
+        console.log("error on species call with id " + id);
         throw error;
       })
   );
@@ -132,14 +132,14 @@ const films = (filmsUrl, promises, output) => {
   promises.push(
     swapi
       .film(id)
-      .then(response => {
+      .then((response) => {
         output.push({
           title: response.title,
-          id: util.getId(response.url)
+          id: util.getId(response.url),
         });
       })
-      .catch(error => {
-        console.log('error on films call with id ' + id);
+      .catch((error) => {
+        console.log("error on films call with id " + id);
         throw error;
       })
   );
@@ -151,5 +151,5 @@ module.exports = {
   starship,
   vehicle,
   species,
-  films
+  films,
 };
