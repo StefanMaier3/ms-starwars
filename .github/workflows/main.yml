@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [16.x, 17.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [16.x, 17.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -32,3 +32,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run integration-tests
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: npm i -g prettier
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.2
+        with:
+          prettier_options: --check **/*.{js,md}
